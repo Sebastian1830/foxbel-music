@@ -14,7 +14,7 @@ function addStyleResource(config, type, lang) {
 
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/platzimusic/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/foxbel-music/' : '/',
   outputDir: 'dist',
   productionSourceMap: false,
   runtimeCompiler: true,
