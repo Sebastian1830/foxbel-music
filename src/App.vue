@@ -1,16 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="app">
+    <div class="app-container">
+      <Sidebar />
+      <section class="app-full-content">
+        <div id="nav">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </div>
+        <router-view class="content-view"/>
+      </section>
     </div>
-    <router-view/>
+    <MusicPlayer />
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Sidebar from '@/components/Sidebar/Sidebar.vue';
+import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
+
+@Component({ components: { Sidebar, MusicPlayer } })
+export default class App extends Vue {
+}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+@import './styles/global';
+</style>
+
+<style lang="scss" scoped>
+.content-view {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

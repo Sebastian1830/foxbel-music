@@ -1391,6 +1391,12 @@
       "search": [
         "hosp-net"
       ]
+    },
+    {
+      "uid": "48cc210e59ff4bc56b6c8fba6eb384b8",
+      "css": "emo-coffee",
+      "code": 59517,
+      "src": "fontelico"
     }
   ]
 }

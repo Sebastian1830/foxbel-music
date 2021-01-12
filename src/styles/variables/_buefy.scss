@@ -1,0 +1,164 @@
+// 1. Import the initial variables
+// ==============================================
+// bulma steps
+// ==============================================
+$steps-default-color:	#D3D4D3;
+$steps-completed-color: #645798;
+$steps-active-color: #645798;
+$steps-horizontal-min-width:	20em;
+$steps-vertical-min-height:	4em;
+//======================================
+
+@import "~bulma/bulma";
+@import "~bulma/sass/utilities/_all";
+
+//  Set your variables
+$v-cal-event-bg: salmon; //  Event background color
+$v-cal-event-border-radius: 10px; //  Events border radius (all 4 corners)
+
+
+$black:        #333333;
+$color-base:     #757575;
+$black-bis:    hsl(0, 0%, 7%);
+$black-ter:    hsl(0, 0%, 14%);
+
+$grey-darker:  hsl(0, 0%, 31%);
+$grey-dark:    #606060;
+$grey:         hsl(0, 0%, 48%);
+$grey-light:   #A9A9A9;
+$grey-lighter: #cccccc;
+$offline-color: #D3D4D3;
+$grey-most-light: #FCFBFC;
+$grey-entregas: #464646;
+
+$white-ter:    hsl(0, 0%, 96%);
+$white-bis:    hsl(0, 0%, 98%);
+$white:        hsl(0, 0%, 100%);
+$yellow-danger: hsl(48, 100%, 67%);
+
+$orange:       #FB9200;
+$yellow:       #ffe057;
+// $green:        hsl(141, 71%, 48%);
+$green: #29E6A4;
+$turquoise:    #00BB95;
+$blue:         #394153;
+$purple:       #662d91;
+// $red:          hsl(348, 100%, 61%);
+$blue-light: #0069A7;
+$red: #FF394C;
+
+$font-fir:    'PT Sans', sans-serif;
+$font-sec:    'Open Sans', sans-serif;
+$pri-color: #8282DB;
+$sec-color: #00c6d5;
+$secondary-color: #00C1B7;
+
+// Color Picker
+$salmon: #FF93BA;
+
+// variables patient
+$malibu: #66DAF3;
+$marketplace-color: #59D895;
+
+// variables institution
+$boston: #3987B7;
+
+// Typography
+$title-sans-serif: 'PT Sans', sans-serif;
+$family-sans-serif: 'PT Sans', sans-serif;
+$family-monospace: monospace;
+$family-arial-rounded: 'Arial Rounded MT', 'Helvetica Rounded', Arial, sans-serif;
+$render-mode: optimizeLegibility;
+
+$size-1: 3rem;
+$size-2: 2.5rem;
+$size-3: 2rem;
+$size-4: 1.5rem;
+$size-5: 1.25rem;
+$size-6: 1rem;
+$size-7: 0.9rem;
+
+$weight-light: 200;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 700;
+$weight-bold: 800;
+
+// Responsiveness
+
+// The container gap, which acts as the offset for breakpoints
+$gap: 24px;
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px;
+// 960px container + 3rem
+$desktop: 960px + (2 * $gap);
+// 1152px container + 3rem
+$widescreen: 1152px + (2 * $gap) ;
+// 1344px container + 3rem
+$fullhd: 1344px + (2 * $gap) ;
+
+// Miscellaneous
+
+$easing: ease-out;
+$radius-small: 0.2rem;
+$radius: 10px;
+$radius-large: 0.4rem;
+$speed: 86ms;
+
+
+// calculated colors
+$primary: $pri-color;
+$secondary: $secondary-color;
+$primary-signup: #615894;
+$info: #00c6d5;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$yellow-redesign: #FFD766;
+
+$light: $white-ter;
+$dark: $grey-entregas;
+
+// =============================================
+// bulma/sass/utilities/derived-variables.sass
+// =============================================
+
+
+// Invert colors
+$primary-invert: findColorInvert($primary);
+$signup-invert: findColorInvert($primary-signup);
+$info-invert: findColorInvert($info);
+$success-invert: findColorInvert($success);
+$warning-invert: findColorInvert($warning);
+$danger-invert: findColorInvert($danger);
+$offline-invert: findColorInvert($offline-color);
+$light-invert: $dark;
+$dark-invert: $light;
+$orange-invert:  findColorInvert($orange);
+$secondary-invert: findColorInvert($secondary);
+$grey-most-light-invert: findColorInvert($grey-most-light);
+$yellow-redesign-invert: findColorInvert($yellow-redesign);
+$malibu-invert: findColorInvert($malibu);
+$boston-invert: findColorInvert($boston);
+$dash-color-invert: findColorInvert($marketplace-color);
+$salmon-invert: findColorInvert($salmon);
+
+// dark colors
+$primary-dark: findDarkColor($primary) !default;
+
+// Map colors
+
+$addColors: (
+        "orange": ($orange, $orange-invert),
+        "secondary": ($secondary, $secondary-invert),
+        "signup": ($primary-signup, $signup-invert),
+        "offline": ($offline-color, $offline-invert),
+        "grey-most-light": ($grey-most-light, $grey-most-light-invert),
+        "yellow-redesign": ($yellow-redesign, $yellow-redesign-invert),
+        "malibu": ($malibu, $malibu-invert),
+        "boston": ($boston, $boston-invert),
+        "marketplace": ($marketplace-color, $dash-color-invert),
+        "salmon": ($salmon, $salmon-invert)
+);
+
+$colors: map-merge($colors, $addColors);

@@ -1,0 +1,23 @@
+// Load Bulma
+@import "~bulma/bulma";
+@import "~bulma/sass/utilities/_all";
+
+@import "helpers";
+
+// Load Buefy
+@import '~buefy/src/scss/buefy.scss';
+
+// Load icon fonts
+@import './icons';
+
+@import "./layout";
+
+html, body, body .body-wrap, .app {
+  display: flex;
+  min-height: 100vh;
+  max-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  overflow-y: auto;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+}

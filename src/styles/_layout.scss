@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+$menu-width: 60px;
 html, body, body .body-wrap, .app {
   display: flex;
   min-height: 100vh;
@@ -6,7 +8,8 @@ html, body, body .body-wrap, .app {
   flex-direction: column;
   margin: 0;
   overflow-y: auto;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  //font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-family: Quicksand, sans-serif !important;
 }
 
 

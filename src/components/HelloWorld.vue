@@ -30,15 +30,33 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <b-button type="is-primary">
+      <a href="http://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://localhost.com/" target="_blank">INICIAR SESSION</a>
+    </b-button>
+    <ModalLogin ref="modalLogin" :html="data" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import ModalLogin from '@/components/layouts/ModalLogin.vue';
 
-@Component
+@Component({ components: { ModalLogin } })
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+
+  public data = '';
+
+  created() {
+    this.load();
+  }
+
+  public async load() {
+    // const result = await this.$axios.get('https://cors-anywhere.herokuapp.com/http://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://localhost.com/');
+    // this.data = result.data;
+    // (this.$refs.modalLogin as any).open();
+    // console.log(result);
+  }
 }
 </script>
 

@@ -1,0 +1,43 @@
+@import './assets/fonts/css/fontello';
+@import './assets/fonts/css/animation';
+
+//@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.fa-check:before { content: '\e810'; } /* '' */
+.fa-info-circle:before { content: '\e813'; } /* '' */
+.fa-check-circle:before { content: '\e814'; } /* '' */
+.fa-exclamation:before { content: '\e815'; } /* '' */
+.fa-exclamation-circle:before { content: '\e80a'; } /* '' */
+.fa-eye:before { content: '\e805'; } /* '' */
+.fa-eye-slash:before { content: '\e81a'; } /* '' */
+.fa-angle-left:before { content: '\f104'; } /* '' */
+.fa-angle-right:before { content: '\f105'; } /* '' */
+.fa-angle-down:before { content: '\f107'; } /* '' */
+.fa-caret-down:before { content: '\e81b'; } /* '' */
+.fa-arrow-up:before { content: '\e80a'; } /* '' */
+
+
+// Icon Sizes
+// -------------------------
+
+// makes the font 33% larger relative to the icon container
+
+.fa-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -.0667em;
+}
+
+.fa-xs {
+  font-size: .75em;
+}
+
+.fa-sm {
+  font-size: .875em;
+}
+
+@for $i from 1 through 10 {
+  .fa-#{$i}x {
+    font-size: $i * 1em;
+  }
+}
