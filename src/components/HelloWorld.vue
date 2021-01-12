@@ -31,7 +31,7 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
     <b-button type="is-primary">
-      <a href="http://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://localhost.com/" target="_blank">INICIAR SESSION</a>
+      <a href="http://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://sebastian1830.github.io/foxbel-music/" target="_blank">INICIAR SESSION</a>
     </b-button>
     <ModalLogin ref="modalLogin" :html="data" />
   </div>
