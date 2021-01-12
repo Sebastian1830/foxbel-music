@@ -1,7 +1,7 @@
 <template>
   <div class="custom-sidebar">
     <div class="mx-6 my-6">
-      <img src="/imagenes/foxbel-music.png" alt="logo" class="mb-4">
+      <img src="../../assets/imagenes/foxbel-music.png" alt="logo" class="mb-4">
       <div  @click="clear('menu1')">
         <MenuItem title="Mi Librería" :items="menu1" :clicked="clickMenu1" class="mb-6" />
       </div>
