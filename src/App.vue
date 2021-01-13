@@ -22,8 +22,9 @@ export default class App extends Vue {
   }
 
   beforeUpdate() {
+    console.log(this.$store.state.isAuthenticated);
     if (this.$router.currentRoute.name === 'Login' && this.$store.state.isAuthenticated) this.$router.push({ name: 'recent-page' });
-    if (!this.$store.state.isAuthenticated) this.$router.push({ name: 'Login' });
+
   }
 
   async userAuthDeezer() {
@@ -34,7 +35,7 @@ export default class App extends Vue {
       this.$store.commit('successAuth');
       const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
       console.log(data_user);
-      await this.$router.push({ name: 'recent-page' });
+      this.$router.push({ name: 'recent-page' }).catch(() => {});
     }
   }
 }
