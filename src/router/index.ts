@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   { path: '/', name: 'Login', component: Login },
-  { path: '/recent-page', name: 'recent-page', component: RecentPage, props: true },
+  { path: '/recent-page/', name: 'recent-page', component: RecentPage, props: true },
 ];
 
 const router = new VueRouter({
