@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <a href="http://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://sscorp.site/recent-page/" target="_blank">
+    <a href="https://connect.deezer.com/oauth/auth.php?app_id=456682&redirect_uri=https://sscorp.site/recent-page/" target="_blank">
       <b-button type="is-primary">Iniciar Sesion</b-button>
     </a>
   </div>
