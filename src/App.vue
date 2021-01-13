@@ -1,16 +1,12 @@
 <template>
   <div id="app" class="app">
     <div class="app-container">
-      <Sidebar />
+      <Sidebar v-if="$store.state.isAuthenticated" />
       <section class="app-full-content margin-auto">
-        <!--<div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
-        </div>-->
         <router-view class="content-view"/>
       </section>
     </div>
-    <MusicPlayer />
+    <MusicPlayer v-if="$store.state.isAuthenticated" />
   </div>
 </template>
 
@@ -18,7 +14,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Sidebar from '@/components/Sidebar/Sidebar.vue';
 import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
-import cookies from 'js-cookie';
 
 @Component({ components: { Sidebar, MusicPlayer } })
 export default class App extends Vue {
@@ -31,8 +26,9 @@ export default class App extends Vue {
     if (queryRouter.code) {
       const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
       localStorage.setItem('access_token', access_token.data)
-      const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
-      console.log(data_user);
+      this.$store.commit('successAuth');
+      // const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
+      // console.log(data_user);
     }
   }
 }
