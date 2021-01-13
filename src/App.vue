@@ -28,8 +28,10 @@ export default class App extends Vue {
   async userAuthDeezer() {
     const queryRouter = this.$route.query;
     if (queryRouter.code) {
-      const result = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
-      console.log(result);
+      const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
+      console.log(access_token.data);
+      const data_user = await this.$axios.get('https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me');
+      console.log(data_user);
     }
   }
 }
