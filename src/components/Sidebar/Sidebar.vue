@@ -24,7 +24,7 @@ export interface Item {
 @Component({ components: { MenuItem } })
 export default class Sidebar extends Vue {
   public menu1: Item[] = [
-    { name: 'Recientes', router: 'recent-page' },
+    { name: 'Recientes', router: 'recent-page/' },
     { name: 'Artistas', router: '' },
     { name: 'Álbums', router: '' },
     { name: 'Canciones', router: '' },
