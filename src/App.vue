@@ -21,9 +21,14 @@ import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
 
 @Component({ components: { Sidebar, MusicPlayer } })
 export default class App extends Vue {
-  created() {
-    const route = this.$route.query;
-    console.log(route);
+  async created() {
+    await this.userAuthDeezer();
+  }
+
+  async userAuthDeezer() {
+    const queryRouter = this.$route.query;
+    const result = await this.$axios.get(`https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
+    console.log(result);
   }
 }
 </script>
