@@ -7,10 +7,6 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Recent extends Vue {
-  created() {
-    const route = this.$route.query;
-    console.log(route);
-  }
 }
 </script>
 

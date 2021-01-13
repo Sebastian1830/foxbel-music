@@ -21,6 +21,10 @@ import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
 
 @Component({ components: { Sidebar, MusicPlayer } })
 export default class App extends Vue {
+  created() {
+    const route = this.$route.query;
+    console.log(route);
+  }
 }
 </script>
 
