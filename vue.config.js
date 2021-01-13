@@ -41,26 +41,6 @@ module.exports = {
     },
   },
   lintOnSave: process.env.NODE_ENV !== 'production',
-  devServer: {
-    host: '0.0.0.0',
-    port: '8080',
-    hot: true,
-    disableHostCheck: true,
-    proxy: {
-      '^/admin|api|static|media/|server': {
-        target: 'http://localhost:9000',
-      },
-    },
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-    },
-    overlay: {
-      warnings: false,
-      errors: true,
-    },
-  },
 
   chainWebpack: (config) => {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
@@ -69,8 +49,6 @@ module.exports = {
   },
   transpileDependencies: [
     /^buefy/,
-    /^vue2-google-maps/,
-    /^vue-search-select/,
     /^vuex-module-decorators/,
   ], // Babel no explora los node modules, esto es para que si lo haga.
 };
