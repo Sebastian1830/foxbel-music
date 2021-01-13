@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Sidebar from '@/components/Sidebar/Sidebar.vue';
 import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
 
@@ -22,8 +22,8 @@ export default class App extends Vue {
   }
 
   beforeUpdate() {
-    console.log(this.$router.currentRoute.name);
     if (this.$router.currentRoute.name === 'Login' && this.$store.state.isAuthenticated) this.$router.push({ name: 'recent-page' });
+    if (!this.$store.state.isAuthenticated) this.$router.push({ name: 'Login' });
   }
 
   async userAuthDeezer() {
