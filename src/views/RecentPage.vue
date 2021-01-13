@@ -1,19 +1,17 @@
 <template>
-  <div class="music-player"></div>
+  <div class="about">
+    <h1>This is an about page</h1>
+  </div>
 </template>
 
 <script lang="ts">
-
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class MusicPlayer extends Vue {
+export default class RecentPage extends Vue {
+
 }
 </script>
 
 <style lang="scss" scoped>
-  .music-player {
-    height: 70px;
-    background-color: $secondary;
-  }
 </style>

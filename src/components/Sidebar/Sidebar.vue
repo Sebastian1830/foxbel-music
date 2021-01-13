@@ -16,11 +16,27 @@
 import { Component, Vue } from 'vue-property-decorator';
 import MenuItem from '@/components/Sidebar/MenuItem.vue';
 
+export interface Item {
+  name: string;
+  router: string;
+}
+
 @Component({ components: { MenuItem } })
 export default class Sidebar extends Vue {
-  public menu1: string[] = ['Recientes', 'Artistas', 'Álbums', 'Canciones', 'Estaciones']
+  public menu1: Item[] = [
+    { name: 'Recientes', router: 'recent-page' },
+    { name: 'Artistas', router: '' },
+    { name: 'Álbums', router: '' },
+    { name: 'Canciones', router: '' },
+    { name: 'Estaciones', router: ' '}
+  ]
 
-  public menu2: string[] = ['Metal', 'Para bailar', 'Rock 90s', 'Baladas']
+  public menu2: Item[] = [
+    { name: 'Metal', router: '' },
+    { name: 'Para bailar', router: '' },
+    { name: 'Rock 90s', router: '' },
+    { name: 'Baladas', router: '' }
+  ]
 
   public clickMenu1 = false;
 
@@ -43,7 +59,7 @@ export default class Sidebar extends Vue {
 <style lang="scss" scoped>
  .custom-sidebar {
    width: 15%;
-   background-color: #662323;
+   background-color: $primary;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    color: white;
  }

@@ -2,11 +2,11 @@
   <div id="app" class="app">
     <div class="app-container">
       <Sidebar />
-      <section class="app-full-content">
-        <div id="nav">
+      <section class="app-full-content margin-auto">
+        <!--<div id="nav">
           <router-link to="/">Home</router-link> |
           <router-link to="/about">About</router-link>
-        </div>
+        </div>-->
         <router-view class="content-view"/>
       </section>
     </div>
@@ -36,8 +36,13 @@ export default class App extends Vue {
   color: #2c3e50;
 }
 
+.margin-auto {
+  margin: auto;
+}
+
 #nav {
   padding: 30px;
+  text-align: center;
 
   a {
     font-weight: bold;
