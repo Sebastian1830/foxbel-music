@@ -28,7 +28,7 @@ export default class Sidebar extends Vue {
     { name: 'Artistas', router: '' },
     { name: 'Álbums', router: '' },
     { name: 'Canciones', router: '' },
-    { name: 'Estaciones', router: ' '}
+    { name: 'Estaciones', router: '' }
   ]
 
   public menu2: Item[] = [
