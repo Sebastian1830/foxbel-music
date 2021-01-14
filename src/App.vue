@@ -6,16 +6,16 @@
         <router-view class="content-view"/>
       </section>
     </div>
-    <MusicPlayer v-if="$store.state.isAuthenticated" />
+    <AudioPlayer v-if="$store.state.isAuthenticated" url="https://vue-audioplayer-demo.s3.amazonaws.com/Kalimba.mp3" playerid="audio-player" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import Sidebar from '@/components/Sidebar/Sidebar.vue';
-import MusicPlayer from '@/components/layouts/MusicPlayer.vue';
+import AudioPlayer from '@/components/layouts/AudioPlayer.vue';
 
-@Component({ components: { Sidebar, MusicPlayer } })
+@Component({ components: { Sidebar, AudioPlayer } })
 export default class App extends Vue {
   async created() {
     await this.userAuthDeezer();
@@ -28,8 +28,9 @@ export default class App extends Vue {
   async userAuthDeezer() {
     const queryRouter = this.$route.query;
     if (queryRouter.code) {
-      const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
-      localStorage.setItem('access_token', access_token.data)
+      const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}&output=json&output=json`);
+      const access_token_format = `access_token=${access_token.data.access_token}&expires=${access_token.data.expires}`;
+      localStorage.setItem('access_token', access_token_format)
       this.$store.commit('successAuth');
       this.$router.push({ name: 'home' });
     }

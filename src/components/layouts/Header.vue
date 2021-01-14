@@ -60,14 +60,13 @@ export default class Header extends Vue {
   }
 
   async load() {
-    console.log('Hola mundo');
-    const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
+    const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}&output=json&output=json`);
     this.dataUser = data_user.data;
     this.$store.commit('setUser', this.dataUser);
   }
 
   async search() {
-    const result = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${this.textSearch}`);
+    const result = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${this.textSearch}&output=json&output=json`);
     this.dataSearcher = result.data.data.slice(0, 9);
     this.$emit('data', this.dataSearcher);
   }
