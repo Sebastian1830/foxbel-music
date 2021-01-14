@@ -15,6 +15,7 @@ export default class HomePage extends Vue {
   public data: any = {};
 
   getData(result: any) {
+    this.data = result;
     console.log(result);
   }
 }

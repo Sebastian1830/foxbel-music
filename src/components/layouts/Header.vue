@@ -5,12 +5,14 @@
         <div class="has-text-left">
           <b-field>
             <b-input v-model="textSearch"
+                     class="search-width"
                      placeholder="Buscar"
                      type="search"
                      icon-right="fa fa-hosp-search"
                      icon-right-clickable
                      @icon-right-click="search"
-                     @keyup.native.enter="search">
+                     @keyup.native.enter="search"
+                     rounded>
             </b-input>
           </b-field>
           <!--<b-autocomplete
@@ -101,11 +103,8 @@ export default class Header extends Vue {
     ::v-deep.input {
       border-color: #b5b5b5;
     }
-    .flex-end {
-      justify-content: flex-end;
-    }
-    .flex-start {
-      justify-content: flex-start;
+    .search-width {
+      width: 60%;
     }
     .is-fullwidth {
       width: 100%;

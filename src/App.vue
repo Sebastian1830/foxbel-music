@@ -22,19 +22,15 @@ export default class App extends Vue {
   }
 
   beforeUpdate() {
-    console.log(this.$store.state.isAuthenticated);
     if (this.$router.currentRoute.name === 'Login' && this.$store.state.isAuthenticated) this.$router.push({ name: 'home' });
-
   }
 
   async userAuthDeezer() {
     const queryRouter = this.$route.query;
     if (queryRouter.code) {
-      const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}`);
+      const access_token = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=456682&secret=741897f37de1734fb1d2ffc6468094be&code=${queryRouter.code}&perms=basic_access,email,listening_history`);
       localStorage.setItem('access_token', access_token.data)
       this.$store.commit('successAuth');
-      // const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
-      // console.log(data_user);
       this.$router.push({ name: 'home' });
     }
   }
