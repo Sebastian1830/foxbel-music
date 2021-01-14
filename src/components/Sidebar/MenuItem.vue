@@ -29,7 +29,7 @@ export default class MenuItem extends Vue {
 
   @Prop({ default: false }) public clicked!: boolean;
 
-  public selected = -1;
+  public selected = 0;
 
   public clear() {
     this.selected = -1;

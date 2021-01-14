@@ -1,15 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="py-6 px-6">
+    <Recent :data="dataRecent" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Recent from '@/components/my_library/Recent.vue';
 
-@Component
+@Component({ components: { Recent } })
 export default class RecentPage extends Vue {
-
+  public dataRecent: any = {};
 }
 </script>
 
