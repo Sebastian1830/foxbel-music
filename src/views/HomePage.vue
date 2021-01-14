@@ -1,7 +1,7 @@
 <template>
   <div class="py-6 px-6">
-    <Header @data="getData" />
-    <Home />
+    <Header @data="getDataSearch" />
+    <Home :data="data" />
   </div>
 </template>
 
@@ -14,7 +14,17 @@ import Header from '@/components/layouts/Header.vue';
 export default class HomePage extends Vue {
   public data: any = {};
 
-  getData(result: any) {
+  created() {
+    this.defaultLoad();
+  }
+
+  async defaultLoad() {
+    const result = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/${this.$store.state.user.id}/recommendations/playlists`);
+    console.log(result);
+    this.data = result.data.data.slice(0, 9);
+  }
+
+  getDataSearch(result: any) {
     this.data = result;
     console.log(result);
   }

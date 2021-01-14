@@ -31,10 +31,10 @@
       <div class="column is-3">
         <div class="has-text-right is-flex">
           <figure class="image is-48x48">
-            <img :src="dataUser.picture_medium" alt="image user" class="is-rounded" />
+            <img :src="$store.state.user.picture" alt="image user" class="is-rounded" />
           </figure>
           <div class="margin-auto">
-            <span>{{ dataUser.name }}</span>
+            <span>{{ $store.state.user.name }}</span>
           </div>
         </div>
       </div>
@@ -56,12 +56,14 @@ export default class Header extends Vue {
   public dataSearcher: string[] = [];
 
   created() {
-    this.load();
+    if(!this.$store.state.user.id) this.load();
   }
 
   async load() {
+    console.log('Hola mundo');
     const data_user = await this.$axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/user/me/?${localStorage.getItem('access_token')}`);
     this.dataUser = data_user.data;
+    this.$store.commit('setUser', this.dataUser);
   }
 
   async search() {
