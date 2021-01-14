@@ -56,7 +56,7 @@ export default class Header extends Vue {
   public dataSearcher: string[] = [];
 
   created() {
-    if(!this.$store.state.user.id) this.load();
+    if(this.$store.state.user.id === -1) this.load();
   }
 
   async load() {
